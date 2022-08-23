@@ -21,3 +21,37 @@ body {
   min-height: 365px;
   position: relative;
 }
+
+.wrapper-card {
+  height: calc(100vh - 250px);
+  display: flex;
+  align-items: center;
+  min-height: 642px;
+  position: relative;
+}
+
+.selection {
+  user-select: none;
+  cursor: pointer;
+  border: 2px solid orange;
+  border-radius: 30px;
+  padding: 10px;
+  padding-left: 20px;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+
+.selection.selected {
+  background-color: rgba(255, 187, 0, 0.233);
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 30px;
+  transition: 0.5s;
+}
+
+.selection:hover {
+  transition: 0.5s;
+  padding-left: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
