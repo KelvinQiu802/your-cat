@@ -7,3 +7,9 @@
 .nav-bar {
   padding: 2em;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fffaf6;
+}
