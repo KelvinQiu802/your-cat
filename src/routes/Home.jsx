@@ -1,5 +1,6 @@
 import { Box, Typography, Stack } from '@mui/material';
 import catImg from '../images/home-cat.svg';
+import Welcome from '../components/Home/Welcome';
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
         alignItems='center'
         className='content'
       >
-        <Typography variant='h1'>Home</Typography>
+        <Welcome />
         <img src={catImg} alt='Cat Image' width='600px' />
       </Stack>
     </Box>
