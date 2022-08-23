@@ -15,10 +15,9 @@ body {
 }
 
 .wrapper {
-  height: calc(100vh - 87px);
+  height: calc(100vh - 200px);
   display: flex;
   align-items: center;
   min-height: 365px;
   position: relative;
-  bottom: 80px;
 }
