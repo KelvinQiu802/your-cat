@@ -12,9 +12,19 @@ import english from '../../language/en-US.json';
 
 const QuestionCard = () => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [answer, setAnswer] = React.useState([]);
 
   const handleNext = () => setCurrentQuestion((prev) => prev + 1);
   const handleBack = () => setCurrentQuestion((prev) => prev - 1);
+  const handleSelect = (e) => {
+    const value = e.currentTarget.dataset.answer;
+    setAnswer((prev) => {
+      const copy = [...prev];
+      copy[currentQuestion] = value;
+      return copy;
+    });
+  };
+  const handleFinish = () => {};
 
   return (
     <Box
@@ -35,22 +45,46 @@ const QuestionCard = () => {
         {english['Q' + currentQuestion]}
       </Typography>
       <Box sx={{ mb: 4 }}>
-        <div className='selection selected'>
-          <Typography variant='h5'>
+        <div
+          className={`selection ${
+            answer[currentQuestion] === 'A' ? 'selected' : ''
+          }`}
+          data-answer='A'
+          onClick={(e) => handleSelect(e)}
+        >
+          <Typography variant='h5' data-answer='A'>
             {english['Q' + currentQuestion + 'A']}
           </Typography>
         </div>
-        <div className='selection '>
+        <div
+          className={`selection ${
+            answer[currentQuestion] === 'B' ? 'selected' : ''
+          }`}
+          data-answer='B'
+          onClick={(e) => handleSelect(e)}
+        >
           <Typography variant='h5'>
             {english['Q' + currentQuestion + 'B']}
           </Typography>
         </div>
-        <div className='selection '>
+        <div
+          className={`selection ${
+            answer[currentQuestion] === 'C' ? 'selected' : ''
+          }`}
+          data-answer='C'
+          onClick={(e) => handleSelect(e)}
+        >
           <Typography variant='h5'>
             {english['Q' + currentQuestion + 'C']}
           </Typography>
         </div>
-        <div className='selection '>
+        <div
+          className={`selection ${
+            answer[currentQuestion] === 'D' ? 'selected' : ''
+          }`}
+          data-answer='D'
+          onClick={(e) => handleSelect(e)}
+        >
           <Typography variant='h5'>
             {english['Q' + currentQuestion + 'D']}
           </Typography>
@@ -60,7 +94,7 @@ const QuestionCard = () => {
         <Button
           color='secondary'
           onClick={handleBack}
-          disabled={currentQuestion === 0}
+          disabled={!currentQuestion}
         >
           Go Back
         </Button>
@@ -69,7 +103,8 @@ const QuestionCard = () => {
             color='warning'
             variant='contained'
             size='large'
-            onClick={handleNext}
+            onClick={handleFinish}
+            disabled={!answer[currentQuestion]}
           >
             Finish!
           </Button>
@@ -79,6 +114,7 @@ const QuestionCard = () => {
             variant='contained'
             size='large'
             onClick={handleNext}
+            disabled={!answer[currentQuestion]}
           >
             Next
           </Button>
