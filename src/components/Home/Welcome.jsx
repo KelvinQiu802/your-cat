@@ -11,7 +11,7 @@ import catImage from '../../images/home-cat.svg';
 const Welcome = () => {
   const navigate = useNavigate();
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleClick = () => {
     navigate('/question');
@@ -61,7 +61,11 @@ const Welcome = () => {
         </strong>
       </Typography>
       {mobile && (
-        <img src={catImage} width='300px' style={{ marginTop: '10px' }} />
+        <img
+          src={catImage}
+          width='80%'
+          style={{ marginTop: '10px', maxWidth: '500px' }}
+        />
       )}
       <Button
         variant='outlined'
@@ -70,6 +74,7 @@ const Welcome = () => {
           mt: mobile ? 2 : 3,
           fontSize: '1.2em',
           fontWeight: 500,
+          width: '80%',
         }}
         color='warning'
         size='big'

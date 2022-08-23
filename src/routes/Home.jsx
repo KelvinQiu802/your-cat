@@ -12,10 +12,10 @@ import Welcome from '../components/Home/Welcome';
 
 const Home = () => {
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Box className={mobile ? '' : 'wrapper'}>
+    <Box className={mobile ? 'wrapper-mobile' : 'wrapper'}>
       <Stack
         direction='row'
         justifyContent='space-evenly'

@@ -3,10 +3,10 @@ import QuestionCard from '../components/Question/QuestionCard';
 
 const Question = () => {
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down(''));
 
   return (
-    <Box className={mobile ? '' : 'wrapper-card'}>
+    <Box className={mobile ? 'wrapper-card' : 'wrapper-card'}>
       <QuestionCard />
     </Box>
   );

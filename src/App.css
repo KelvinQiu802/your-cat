@@ -18,7 +18,17 @@ body {
   height: calc(100vh - 200px);
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 365px;
+  position: relative;
+}
+
+.wrapper-mobile {
+  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 450px;
   position: relative;
 }
 
@@ -26,6 +36,7 @@ body {
   height: calc(100vh - 250px);
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 642px;
   position: relative;
 }
