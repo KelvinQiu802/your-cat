@@ -9,6 +9,7 @@ import {
 import { Stack } from '@mui/system';
 import React from 'react';
 import english from '../../language/en-US.json';
+import { calcResult } from '../../utils/tools';
 
 const QuestionCard = () => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -24,7 +25,10 @@ const QuestionCard = () => {
       return copy;
     });
   };
-  const handleFinish = () => {};
+  const handleFinish = () => {
+    const result = calcResult(answer);
+    console.log(result);
+  };
 
   return (
     <Box
