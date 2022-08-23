@@ -41,6 +41,15 @@ body {
   position: relative;
 }
 
+.wrapper-result {
+  height: calc(100vh - 250px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 700px;
+  position: relative;
+}
+
 .selection {
   user-select: none;
   cursor: pointer;
