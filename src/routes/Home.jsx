@@ -1,4 +1,4 @@
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, Tooltip } from '@mui/material';
 import catImg from '../images/home-cat.svg';
 import Welcome from '../components/Home/Welcome';
 
@@ -12,7 +12,11 @@ const Home = () => {
         className='content'
       >
         <Welcome />
-        <img src={catImg} alt='Cat Image' width='600px' />
+        <Tooltip title='@designed by Freepik' placement='top'>
+          <a href='https://www.freepik.com' target='_blank'>
+            <img src={catImg} alt='Cat Image' width='600px' />
+          </a>
+        </Tooltip>
       </Stack>
     </Box>
   );
