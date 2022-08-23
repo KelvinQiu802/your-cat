@@ -10,10 +10,12 @@ import { Stack } from '@mui/system';
 import React from 'react';
 import english from '../../language/en-US.json';
 import { calcResult } from '../../utils/tools';
+import Result from './Result';
 
 const QuestionCard = () => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [answer, setAnswer] = React.useState([]);
+  const [result, setResult] = React.useState(null);
 
   const handleNext = () => setCurrentQuestion((prev) => prev + 1);
   const handleBack = () => setCurrentQuestion((prev) => prev - 1);
@@ -28,103 +30,110 @@ const QuestionCard = () => {
   const handleFinish = () => {
     const result = calcResult(answer);
     console.log(result);
+    setResult(result);
   };
 
   return (
-    <Box
-      sx={{
-        margin: '0 auto',
-        width: '600px',
-        mt: 5,
-        p: 4,
-      }}
-    >
-      <LinearProgress
-        variant='determinate'
-        value={((currentQuestion + 1) / 7) * 100}
-        color='warning'
-        sx={{ borderRadius: 5, height: '7px' }}
-      />
-      <Typography variant='h4' sx={{ mt: 5, fontWeight: 500, mb: 5 }}>
-        {english['Q' + currentQuestion]}
-      </Typography>
-      <Box sx={{ mb: 4 }}>
-        <div
-          className={`selection ${
-            answer[currentQuestion] === 'A' ? 'selected' : ''
-          }`}
-          data-answer='A'
-          onClick={(e) => handleSelect(e)}
+    <>
+      {result ? (
+        <Result result={result} />
+      ) : (
+        <Box
+          sx={{
+            margin: '0 auto',
+            width: '600px',
+            mt: 5,
+            p: 4,
+          }}
         >
-          <Typography variant='h5' data-answer='A'>
-            {english['Q' + currentQuestion + 'A']}
-          </Typography>
-        </div>
-        <div
-          className={`selection ${
-            answer[currentQuestion] === 'B' ? 'selected' : ''
-          }`}
-          data-answer='B'
-          onClick={(e) => handleSelect(e)}
-        >
-          <Typography variant='h5'>
-            {english['Q' + currentQuestion + 'B']}
-          </Typography>
-        </div>
-        <div
-          className={`selection ${
-            answer[currentQuestion] === 'C' ? 'selected' : ''
-          }`}
-          data-answer='C'
-          onClick={(e) => handleSelect(e)}
-        >
-          <Typography variant='h5'>
-            {english['Q' + currentQuestion + 'C']}
-          </Typography>
-        </div>
-        <div
-          className={`selection ${
-            answer[currentQuestion] === 'D' ? 'selected' : ''
-          }`}
-          data-answer='D'
-          onClick={(e) => handleSelect(e)}
-        >
-          <Typography variant='h5'>
-            {english['Q' + currentQuestion + 'D']}
-          </Typography>
-        </div>
-      </Box>
-      <Stack direction='row' justifyContent='space-between'>
-        <Button
-          color='secondary'
-          onClick={handleBack}
-          disabled={!currentQuestion}
-        >
-          Go Back
-        </Button>
-        {currentQuestion === 6 ? (
-          <Button
+          <LinearProgress
+            variant='determinate'
+            value={((currentQuestion + 1) / 7) * 100}
             color='warning'
-            variant='contained'
-            size='large'
-            onClick={handleFinish}
-            disabled={!answer[currentQuestion]}
-          >
-            Finish!
-          </Button>
-        ) : (
-          <Button
-            color='warning'
-            variant='contained'
-            size='large'
-            onClick={handleNext}
-            disabled={!answer[currentQuestion]}
-          >
-            Next
-          </Button>
-        )}
-      </Stack>
-    </Box>
+            sx={{ borderRadius: 5, height: '7px' }}
+          />
+          <Typography variant='h4' sx={{ mt: 5, fontWeight: 500, mb: 5 }}>
+            {english['Q' + currentQuestion]}
+          </Typography>
+          <Box sx={{ mb: 4 }}>
+            <div
+              className={`selection ${
+                answer[currentQuestion] === 'A' ? 'selected' : ''
+              }`}
+              data-answer='A'
+              onClick={(e) => handleSelect(e)}
+            >
+              <Typography variant='h5' data-answer='A'>
+                {english['Q' + currentQuestion + 'A']}
+              </Typography>
+            </div>
+            <div
+              className={`selection ${
+                answer[currentQuestion] === 'B' ? 'selected' : ''
+              }`}
+              data-answer='B'
+              onClick={(e) => handleSelect(e)}
+            >
+              <Typography variant='h5'>
+                {english['Q' + currentQuestion + 'B']}
+              </Typography>
+            </div>
+            <div
+              className={`selection ${
+                answer[currentQuestion] === 'C' ? 'selected' : ''
+              }`}
+              data-answer='C'
+              onClick={(e) => handleSelect(e)}
+            >
+              <Typography variant='h5'>
+                {english['Q' + currentQuestion + 'C']}
+              </Typography>
+            </div>
+            <div
+              className={`selection ${
+                answer[currentQuestion] === 'D' ? 'selected' : ''
+              }`}
+              data-answer='D'
+              onClick={(e) => handleSelect(e)}
+            >
+              <Typography variant='h5'>
+                {english['Q' + currentQuestion + 'D']}
+              </Typography>
+            </div>
+          </Box>
+          <Stack direction='row' justifyContent='space-between'>
+            <Button
+              color='secondary'
+              onClick={handleBack}
+              disabled={!currentQuestion}
+            >
+              Go Back
+            </Button>
+            {currentQuestion === 6 ? (
+              <Button
+                color='warning'
+                variant='contained'
+                size='large'
+                onClick={handleFinish}
+                disabled={!answer[currentQuestion]}
+              >
+                Finish!
+              </Button>
+            ) : (
+              <Button
+                color='warning'
+                variant='contained'
+                size='large'
+                onClick={handleNext}
+                disabled={!answer[currentQuestion]}
+              >
+                Next
+              </Button>
+            )}
+          </Stack>
+        </Box>
+      )}
+    </>
   );
 };
 
