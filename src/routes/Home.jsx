@@ -3,10 +3,17 @@ import catImg from '../images/home-cat.svg';
 
 const Home = () => {
   return (
-    <Stack direction='row' justifyContent='center' alignItems='center'>
-      <Typography variant='h1'>Home</Typography>
-      <img src={catImg} alt='' />
-    </Stack>
+    <Box className='wrapper'>
+      <Stack
+        direction='row'
+        justifyContent='space-evenly'
+        alignItems='center'
+        className='content'
+      >
+        <Typography variant='h1'>Home</Typography>
+        <img src={catImg} alt='Cat Image' width='600px' />
+      </Stack>
+    </Box>
   );
 };
 

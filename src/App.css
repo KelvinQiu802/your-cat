@@ -13,3 +13,12 @@ body {
   height: 100vh;
   background-color: #fffaf6;
 }
+
+.wrapper {
+  height: calc(100vh - 87px);
+  display: flex;
+  align-items: center;
+  min-height: 365px;
+  position: relative;
+  bottom: 80px;
+}
