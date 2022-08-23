@@ -1,13 +1,22 @@
-import { Card, CardContent, Stack, Typography, Box } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+  Box,
+  Button,
+} from '@mui/material';
 
 const Welcome = () => {
+  const handleClick = () => {};
+
   return (
     <Stack>
       <Typography
         variant='h1'
         sx={{ fontWeight: 400, mb: '-20px', fontStyle: 'italic' }}
       >
-        Choose
+        Choose <span style={{ fontStyle: 'normal' }}>🐈</span>
       </Typography>
       <Typography
         variant='h1'
@@ -29,6 +38,20 @@ const Welcome = () => {
           <i>by asking you a few questions.</i>
         </strong>
       </Typography>
+      <Button
+        variant='outlined'
+        sx={{
+          borderRadius: 5,
+          mt: 3,
+          fontSize: '1.2em',
+          fontWeight: 500,
+        }}
+        color='warning'
+        size='big'
+        onClick={handleClick}
+      >
+        Let's Start!
+      </Button>
     </Stack>
   );
 };
