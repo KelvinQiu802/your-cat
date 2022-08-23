@@ -64,14 +64,25 @@ const QuestionCard = () => {
         >
           Go Back
         </Button>
-        <Button
-          color='warning'
-          variant='contained'
-          size='large'
-          onClick={handleNext}
-        >
-          Next
-        </Button>
+        {currentQuestion === 6 ? (
+          <Button
+            color='warning'
+            variant='contained'
+            size='large'
+            onClick={handleNext}
+          >
+            Finish!
+          </Button>
+        ) : (
+          <Button
+            color='warning'
+            variant='contained'
+            size='large'
+            onClick={handleNext}
+          >
+            Next
+          </Button>
+        )}
       </Stack>
     </Box>
   );
