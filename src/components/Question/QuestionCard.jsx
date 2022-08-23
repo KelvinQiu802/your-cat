@@ -57,7 +57,11 @@ const QuestionCard = () => {
         </div>
       </Box>
       <Stack direction='row' justifyContent='space-between'>
-        <Button color='secondary' onClick={handleBack}>
+        <Button
+          color='secondary'
+          onClick={handleBack}
+          disabled={currentQuestion === 0}
+        >
           Go Back
         </Button>
         <Button
