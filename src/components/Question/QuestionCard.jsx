@@ -8,9 +8,13 @@ import {
 } from '@mui/material';
 import { Stack } from '@mui/system';
 import React from 'react';
+import english from '../../language/en-US.json';
 
 const QuestionCard = () => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+
+  const handleNext = () => setCurrentQuestion((prev) => prev + 1);
+  const handleBack = () => setCurrentQuestion((prev) => prev - 1);
 
   return (
     <Box
@@ -23,31 +27,45 @@ const QuestionCard = () => {
     >
       <LinearProgress
         variant='determinate'
-        value={50}
+        value={((currentQuestion + 1) / 7) * 100}
         color='warning'
         sx={{ borderRadius: 5, height: '7px' }}
       />
       <Typography variant='h4' sx={{ mt: 5, fontWeight: 500, mb: 5 }}>
-        What is your name?asldkjasldkjasldkjalsdkjalskdjalskdjalskdj
-        asdlkajsdlkasjdlaksjdlaskdjsa
+        {english['Q' + currentQuestion]}
       </Typography>
       <Box sx={{ mb: 4 }}>
         <div className='selection selected'>
-          <Typography variant='h5'>A. Good</Typography>
+          <Typography variant='h5'>
+            {english['Q' + currentQuestion + 'A']}
+          </Typography>
         </div>
         <div className='selection '>
-          <Typography variant='h5'>A. Good</Typography>
+          <Typography variant='h5'>
+            {english['Q' + currentQuestion + 'B']}
+          </Typography>
         </div>
         <div className='selection '>
-          <Typography variant='h5'>A. Good</Typography>
+          <Typography variant='h5'>
+            {english['Q' + currentQuestion + 'C']}
+          </Typography>
         </div>
         <div className='selection '>
-          <Typography variant='h5'>A. Good</Typography>
+          <Typography variant='h5'>
+            {english['Q' + currentQuestion + 'D']}
+          </Typography>
         </div>
       </Box>
       <Stack direction='row' justifyContent='space-between'>
-        <Button color='secondary'>Go Back</Button>
-        <Button color='warning' variant='contained' size='large'>
+        <Button color='secondary' onClick={handleBack}>
+          Go Back
+        </Button>
+        <Button
+          color='warning'
+          variant='contained'
+          size='large'
+          onClick={handleNext}
+        >
           Next
         </Button>
       </Stack>
