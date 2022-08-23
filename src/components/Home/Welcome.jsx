@@ -1,14 +1,11 @@
-import {
-  Card,
-  CardContent,
-  Stack,
-  Typography,
-  Box,
-  Button,
-} from '@mui/material';
+import { Stack, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
-  const handleClick = () => {};
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/question');
+  };
 
   return (
     <Stack>
