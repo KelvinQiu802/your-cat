@@ -27,14 +27,6 @@ const App = () => {
         >
           Home
         </NavLink>
-        <NavLink
-          to='all'
-          className={({ isActive }) =>
-            isActive ? 'link-selected' : 'nav-link'
-          }
-        >
-          All Breeds
-        </NavLink>
       </nav>
       <Outlet />
     </>
