@@ -1,11 +1,29 @@
 .nav-link {
   text-decoration: none;
-  font-size: 1.2em;
-  margin-left: 1.3em;
+  font-size: 1em;
+  padding: 0.3em 0.7em;
+  border-radius: 20px;
+  margin-left: 1.1em;
+}
+
+.link-selected {
+  text-decoration: none;
+  font-size: 1em;
+  border: 2px solid orange;
+  padding: 0.3em 0.7em;
+  border-radius: 20px;
+  margin-left: 1.1em;
 }
 
 .nav-bar {
-  padding: 2em;
+  padding: 1.1em 2em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.nav-bar-mobile {
+  padding: 0.8em 2em;
+  padding-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 body {
