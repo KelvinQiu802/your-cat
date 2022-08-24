@@ -5,7 +5,6 @@ import './index.css';
 import 'normalize.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
-import All from './routes/All';
 import Question from './routes/Question';
 import NotFound from './routes/NotFound';
 
