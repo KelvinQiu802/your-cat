@@ -77,9 +77,9 @@ export const calcResult = (answer) => {
             case 'A':
               return vol < 3;
             case 'B':
-              return vol == 3;
+              return vol <= 4;
             case 'C':
-              return vol > 3;
+              return true;
             case 'D':
               return true;
           }
@@ -90,9 +90,9 @@ export const calcResult = (answer) => {
             case 'A':
               return fur < 3;
             case 'B':
-              return fur == 3;
+              return fur <= 4;
             case 'C':
-              return fur > 3;
+              return true;
             case 'D':
               return true;
           }
