@@ -10,9 +10,13 @@ import { Stack } from '@mui/system';
 import React from 'react';
 import english from '../../language/en-US.json';
 import { calcResult } from '../../utils/tools';
+import { useTheme, useMediaQuery } from '@mui/material';
 import Result from './Result';
 
 const QuestionCard = ({ result, setResult }) => {
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
+
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [answer, setAnswer] = React.useState([]);
 
@@ -36,7 +40,7 @@ const QuestionCard = ({ result, setResult }) => {
     <Box
       sx={{
         margin: '0 auto',
-        width: '600px',
+        width: mobile ? '80%' : '600px',
         mt: 5,
         p: 4,
       }}
@@ -47,7 +51,15 @@ const QuestionCard = ({ result, setResult }) => {
         color='warning'
         sx={{ borderRadius: 5, height: '7px' }}
       />
-      <Typography variant='h4' sx={{ mt: 5, fontWeight: 500, mb: 5 }}>
+      <Typography
+        variant='h4'
+        sx={{
+          mt: 5,
+          fontWeight: 500,
+          mb: 5,
+          fontSize: mobile ? '1.3em' : '2em',
+        }}
+      >
         {english['Q' + currentQuestion]}
       </Typography>
       <Box sx={{ mb: 4 }}>
@@ -58,7 +70,7 @@ const QuestionCard = ({ result, setResult }) => {
           data-answer='A'
           onClick={(e) => handleSelect(e)}
         >
-          <Typography variant='h5' data-answer='A'>
+          <Typography variant='h5' data-answer='A' sx={{ fontSize: '1.3em' }}>
             {english['Q' + currentQuestion + 'A']}
           </Typography>
         </div>
@@ -69,7 +81,7 @@ const QuestionCard = ({ result, setResult }) => {
           data-answer='B'
           onClick={(e) => handleSelect(e)}
         >
-          <Typography variant='h5'>
+          <Typography variant='h5' data-answer='B' sx={{ fontSize: '1.3em' }}>
             {english['Q' + currentQuestion + 'B']}
           </Typography>
         </div>
@@ -80,7 +92,7 @@ const QuestionCard = ({ result, setResult }) => {
           data-answer='C'
           onClick={(e) => handleSelect(e)}
         >
-          <Typography variant='h5'>
+          <Typography variant='h5' data-answer='C' sx={{ fontSize: '1.3em' }}>
             {english['Q' + currentQuestion + 'C']}
           </Typography>
         </div>
@@ -91,7 +103,7 @@ const QuestionCard = ({ result, setResult }) => {
           data-answer='D'
           onClick={(e) => handleSelect(e)}
         >
-          <Typography variant='h5'>
+          <Typography variant='h5' data-answer='D' sx={{ fontSize: '1.3em' }}>
             {english['Q' + currentQuestion + 'D']}
           </Typography>
         </div>
