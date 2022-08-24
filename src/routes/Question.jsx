@@ -10,7 +10,7 @@ const Question = () => {
   const [result, setResult] = React.useState(null);
 
   return (
-    <>
+    <Box className='content'>
       {result ? (
         <Box className='wrapper-result'>
           <Result result={result} />
@@ -20,7 +20,7 @@ const Question = () => {
           <QuestionCard result={result} setResult={setResult} />
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 

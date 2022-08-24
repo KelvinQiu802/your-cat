@@ -75,3 +75,11 @@ body {
   padding-top: 13px;
   padding-bottom: 13px;
 }
+
+.flag {
+  vertical-align: middle;
+  position: relative;
+  bottom: 3px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
